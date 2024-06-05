@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./resources/library/RemixIcon/remixicon.css" />
+    <link rel="stylesheet" href="./resources/style/index.css" />
+    <title>DEFENSIO</title>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <div class="icone">
+                <i class="ri-shield-flash-fill"></i>
+            </div>
+            <div class="nome">
+                <p>DEFENSIO</p>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a>Principal</a></li>
+                <li><a>Chaves de Acesso</a></li>
+                <li><a>Configurações</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="painel"></div>
+
+        <div class="dados">
+
+            <div class="cabecalho">
+                <p>Todas das Chaves</p>
+                <button id="botao-cadastrar-chave-seguranca">
+                    <p>Nova Chave</p>
+                    <i class="ri-add-large-line"></i>
+                </button>
+            </div>
+
+            <div class="lista">
+
+                <div class="caixa">
+                    <div class="item">
+                        <div class="cabecalho">
+                            <div class="logo">
+                                <i class="ri-google-fill"></i>
+                            </div>
+                            <div class="numero-contas">
+                                <p>22 Contas</p>
+                            </div>
+                        </div>
+                        <div class="conteudo">
+                            <p>Google</p>
+                        </div>
+                        <div class="rodape">
+                            <div class="rodape-categoria">
+                                <p>Categoria:</p>
+                                <span>Serviços</span>
+                            </div>
+                            <div class="rodape-criacao">
+                                <p>Criado em:</p>
+                                <span>02/02/2020 às 10:45:03</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="caixa">
+                    <div class="item">
+                        <div class="cabecalho">
+                            <div class="logo">
+                                <i class="ri-amazon-fill"></i>
+                            </div>
+                            <div class="numero-contas">
+                                <p>5 Contas</p>
+                            </div>
+                        </div>
+                        <div class="conteudo">
+                            <p>Amazon</p>
+                        </div>
+                        <div class="rodape">
+                            <div class="rodape-categoria">
+                                <p>Categoria:</p>
+                                <span>Serviços</span>
+                            </div>
+                            <div class="rodape-criacao">
+                                <p>Criado em:</p>
+                                <span>02/02/2020 às 10:45:03</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="caixa">
+                    <div class="item">
+                        <div class="cabecalho">
+                            <div class="logo">
+                                <i class="ri-meta-fill"></i>
+                            </div>
+                            <div class="numero-contas">
+                                <p>5 Contas</p>
+                            </div>
+                        </div>
+                        <div class="conteudo">
+                            <p>Facebook</p>
+                        </div>
+                        <div class="rodape">
+                            <div class="rodape-categoria">
+                                <p>Categoria:</p>
+                                <span>Serviços</span>
+                            </div>
+                            <div class="rodape-criacao">
+                                <p>Criado em:</p>
+                                <span>02/02/2020 às 10:45:03</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="caixa">
+                    <div class="item">
+                        <div class="cabecalho">
+                            <div class="logo">
+                                <i class="ri-apple-fill"></i>
+                            </div>
+                            <div class="numero-contas">
+                                <p>5 Contas</p>
+                            </div>
+                        </div>
+                        <div class="conteudo">
+                            <p>Apple Brasil</p>
+                        </div>
+                        <div class="rodape">
+                            <div class="rodape-categoria">
+                                <p>Categoria:</p>
+                                <span>Serviços</span>
+                            </div>
+                            <div class="rodape-criacao">
+                                <p>Criado em:</p>
+                                <span>02/02/2020 às 10:45:03</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <section id="modal-fundo"></section>
+
+    <section id="modal-cadastrar-chave">
+
+        <form autocomplete="off">
+
+            <div class="cabecalho">
+                <h3>Cadastro de Chave de Segurança</h3>
+            </div>
+
+            <div class="conteudo">
+
+                <div class="linha">
+
+                    <div class="item">
+                        <label>Categoria da Chave</label>
+                        <select id="categoria-chave-acesso">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="item">
+                        <label>Pessoa Monitorada</label>
+                        <select id="pessoa-monitorada">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="linha">
+
+                    <div class="item">
+                        <label>Identificador</label>
+                        <input placeholder="Usuário"/>
+                    </div>
+
+                    <div class="item">
+                        <label>Senha</label>
+                        <input type="password" placeholder="* * * * * * "/>
+                    </div>
+
+                </div>
+
+                <div id="item-nome" class="linha">
+
+                    <div class="item colunaGrande">
+                        <label>Nome do Aplicativo</label>
+                        <input placeholder="Nome do Sistema"/>
+                    </div>
+
+                </div>
+
+                <div id="item-URL" class="linha">
+
+                    <div class="item colunaGrande">
+                        <label>URL</label>
+                        <input placeholder="HTTP://"/>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <button onclick="cadastrar()" class="desativar">Cadastrar</button>
+                <button id="botao-cancelar-cadastro">Cancelar</button>
+            </div>
+
+        </form>
+
+    </section>
+
+    <script src="./resources/script/index.js"></script>
+    <script src="./resources/script/chave-seguranca-controller.js"></script>
+
+</body>
+
+</html>

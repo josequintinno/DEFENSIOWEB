@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-verde: #1DE783;
+  --cor-azul: #2066EC;
+  --cor-vermelho: #F34E1E;
+}
+
+::-webkit-scrollbar {
+  width: 0.0rem;
+}
+
+body {
+  font-family: "Saira";
+  background-color: #F5F5F5;
+}
+
+header {
+  top: 0;
+  width: 100%;
+  height: 20%;
+  background-color: #070C1F;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+header nav {
+  margin-right: 1rem;
+}
+
+.logo p:hover {
+  color: var(--cor-verde);
+  transition: color 0.8s;
+}
+
+@keyframes animacao-logo {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  45% {
+    transform: rotateY(45deg);
+  }
+
+  75% {
+    transform: rotateY(90deg);
+  }
+
+  90% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(300deg);
+  }
+}
+
+.icone {
+  color: var(--cor-verde);
+  animation: animacao-logo 5s infinite;
+}
+
+.icone i {
+  font-size: 1.6rem;
+}
+
+.nome {
+  margin-left: 1rem;
+}
+
+.nome p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: var(--cor-verde);
+  transition: color 0.8s;
+  cursor: pointer;
+}
+
+.painel {
+  width: 90%;
+  height: 10rem;
+  padding: 1rem;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 0.4rem;
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+main .dados .cabecalho {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.dados .cabecalho p {
+  font-weight: bold;
+}
+
+.dados .cabecalho button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: var(--cor-azul);
+  border: none;
+  border-radius: 0.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+.dados .cabecalho button i {
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.lista {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.lista .caixa {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.lista .caixa:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.6s;
+}
+
+main .dados .lista .caixa .item .cabecalho {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lista .caixa .item .cabecalho .logo i {
+  font-size: 1.6rem;
+}
+
+.lista .caixa .item .cabecalho .numero-contas p {
+  color: #b0b0b0;
+}
+
+.lista .caixa .item .conteudo p {
+  font-weight: bold;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: -1.6rem;
+}
+
+.lista .caixa .item .rodape .rodape-categoria {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin: 0.3rem;
+}
+
+.lista .caixa .item .rodape .rodape-categoria span {
+  color: #787878;
+  background-color: #F2F4F7;
+  padding: 0.4rem;
+  border-radius: 1rem;
+}
+
+.lista .caixa .item .rodape .rodape-criacao {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin: 0.3rem;
+}
+
+.lista .caixa .item .rodape .rodape-criacao span {
+  color: #787878;
+}
+
+#modal-fundo {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#modal-fundo.apresentarModalFundo {
+  display: flex;
+}
+
+#modal-cadastrar-chave {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 11;
+}
+
+#modal-cadastrar-chave .cabecalho {
+  text-align: center;
+  border-bottom: 0.01rem solid grey;
+}
+
+#modal-cadastrar-chave .conteudo .linha {
+  display: flex;
+  justify-content: space-between;
+}
+
+#modal-cadastrar-chave .conteudo .linha .item {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  margin-bottom: 1rem;
+}
+
+#modal-cadastrar-chave .conteudo .linha.esconderItemFormulario {
+  display: none;
+}
+
+#modal-cadastrar-chave .conteudo .linha .item label {
+  font-weight: 550;
+  margin-top: 1rem;
+}
+
+#modal-cadastrar-chave .conteudo .linha .item input,
+#modal-cadastrar-chave .conteudo .linha .item select {
+  border: solid #CCCCCC 0.001rem;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: #528cf7;
+}
+
+#modal-cadastrar-chave .footer {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+#modal-cadastrar-chave .footer button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#modal-cadastrar-chave .footer button:nth-child(1) {
+  background-color: var(--cor-azul);
+  width: 79%;
+}
+
+#modal-cadastrar-chave .footer button:nth-child(2) {
+  background-color: var(--cor-vermelho);
+  width: 19%;
+}
+
+#modal-cadastrar-chave .footer button.desativar {
+  background-color: #2067ec89;
+  cursor: not-allowed;
+}
+
+#modal-cadastrar-chave.apresentarModalCadastrarChave {
+  display: flex;
+  animation: slideDown 1s;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.colunaPequena {
+  width: 8% !important;
+}
+
+.colunaMedia {
+  width: 18% !important;
+}
+
+.colunaGrande {
+  width: 98% !important;
+}
+
+@media (max-width: 1100px) {
+  main .dados .lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  main .dados .lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  main .dados .lista {
+    width: 90%;
+    margin: auto;
+    display: block;
+  }
+
+  main .dados .lista .caixa {
+    margin-top: 1rem;
+  }
+
+  .lista .caixa .item .cabecalho .logo i {
+    font-size: 2.4rem;
+  }
+
+  .lista .caixa .item .conteudo p {
+    font-size: 2rem;
+  }
+
+  .lista .caixa .item .rodape {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    font-size: 0.8rem;
+  }
+
+  #modal-cadastrar-chave .conteudo .linha {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #modal-cadastrar-chave .conteudo .linha .item select {
+    width: 90vw;
+  }
+
+  #modal-cadastrar-chave .conteudo .linha .item input {
+    width: 86vw;
+  }
+}
+
+@media (max-width: 500px) {
+  nav ul {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  nav ul {
+    display: none;
+  }
+}
+
+/* border: solid red 0.001rem; */
