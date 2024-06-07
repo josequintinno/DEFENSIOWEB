@@ -104,6 +104,16 @@ function persistir() {
         return response.ok ? console.log('Dados enviados com sucesso!') : console.log('Falha ao enviar os dados!')
     }).catch(error => console.error("Erro: ", error));
 
+    document.getElementById("categoria-chave-acesso").value = "";
+    document.getElementById("pessoa-monitorada").value = "";
+    document.getElementById("identificador").value = "";
+    document.getElementById("chave").value = "";
+    document.getElementById("nome-aplicativo").value = "";
+    document.getElementById("url").value = "";
+
+    modalFundoView.classList.remove("apresentarModalFundo");
+    modalCadastrarChaveView.classList.remove("apresentarModalCadastrarChave");
+
 }
 
 this.recuperarCategoriaChaveSeguranca();

@@ -3,3 +3,4 @@ DEFESIO - Sistema de Gestão de Acessos
 -- Tarefas
 
     :small_blue_diamond: feature: Implementar persistência de dados das Chaves de Segurança
+    :small_blue_diamond: feature: Implementar comportamentos de tela da cadastro de Acessos
