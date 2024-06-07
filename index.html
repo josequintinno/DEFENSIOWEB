@@ -192,12 +192,12 @@
 
                     <div class="item">
                         <label>Identificador</label>
-                        <input placeholder="Usuário"/>
+                        <input id="identificador" placeholder="Usuário"/>
                     </div>
 
                     <div class="item">
                         <label>Senha</label>
-                        <input type="password" placeholder="* * * * * * "/>
+                        <input id="chave" type="password" placeholder="* * * * * * "/>
                     </div>
 
                 </div>
@@ -206,7 +206,7 @@
 
                     <div class="item colunaGrande">
                         <label>Nome do Aplicativo</label>
-                        <input placeholder="Nome do Sistema"/>
+                        <input id="nome-aplicativo" placeholder="Nome do Sistema"/>
                     </div>
 
                 </div>
@@ -215,7 +215,7 @@
 
                     <div class="item colunaGrande">
                         <label>URL</label>
-                        <input placeholder="HTTP://"/>
+                        <input id="url" placeholder="HTTP://"/>
                     </div>
 
                 </div>
@@ -223,7 +223,7 @@
             </div>
 
             <div class="footer">
-                <button onclick="cadastrar()" class="desativar">Cadastrar</button>
+                <button onclick="persistir()" class="desativar">Cadastrar</button>
                 <button id="botao-cancelar-cadastro">Cancelar</button>
             </div>
 
