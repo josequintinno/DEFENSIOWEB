@@ -100,9 +100,9 @@ function persistir() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(chaveSegurancaObject)
-    })
-    .then(response => response.ok ? console.log('Dados enviados com sucesso!') : Promise.reject('Erro ao enviar os dados. Status code: ' + response.status + '. Resposta da API: ' + response.statusText))
-    .catch(error => console.error('Erro de conexão ao enviar os dados para a API:', error));
+    }).then(response => {
+        return response.ok ? console.log('Dados enviados com sucesso!') : console.log('Falha ao enviar os dados!')
+    }).catch(error => console.error("Erro: ", error));
 
 }
 
