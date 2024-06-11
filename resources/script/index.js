@@ -7,7 +7,6 @@ const itemURL = document.getElementById("item-URL");
 const itemNome = document.getElementById("item-nome");
 const nomeAplicativoInput = document.getElementById("nome-aplicativo");
 const urlInput = document.getElementById("url");
-const URL_API_ACESSO = "http://192.168.1.3:8080/api/v1/acesso";
 
 botaoCadastrarChaveSegurancaView.addEventListener("click", function() {
   modalFundoView.classList.add("apresentarModalFundo");
@@ -33,44 +32,3 @@ categoriaChaveAcessoInput.addEventListener("change", function(event) {
     itemNome.classList.remove("esconderItemFormulario");
   }
 });
-
-function obterDadosTela() {
-
-  let listaInput = document.getElementById("lista");
-
-  let caixaClasse = document.createElement("caixa");
-
-    caixaClasse.classList.add("caixa");
-
-  caixaClasse.innerHTML =
-    `
-      <div class="item">
-        <div class="cabecalho">
-          <div class="logo">
-            <i class="ri-google-fill"></i>
-          </div>
-          <div class="numero-contas">
-            <p>22 Contas</p>
-          </div>
-        </div>
-        <div class="conteudo">
-          <p>Google</p>
-        </div>
-        <div class="rodape">
-          <div class="rodape-categoria">
-            <p>Categoria:</p>
-            <span>Serviços</span>
-          </div>
-          <div class="rodape-criacao">
-            <p>Criado em:</p>
-            <span>02/02/2020 às 10:45:03</span>
-          </div>
-        </div>
-      </div>
-    `;
-
-    listaInput.appendChild(caixaClasse);
-
-}
-
-this.obterDadosTela();
