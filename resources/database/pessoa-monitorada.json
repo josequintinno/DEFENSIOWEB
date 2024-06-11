@@ -2,5 +2,6 @@
     { "codigo": 1, "nome": "Google" },
     { "codigo": 2, "nome": "Microsoft" },
     { "codigo": 3, "nome": "Apple" },
-    { "codigo": 4, "nome": "Amazon" }
+    { "codigo": 4, "nome": "Amazon" },
+    { "codigo": 5, "nome": "Banco do Brasil" }
 ]

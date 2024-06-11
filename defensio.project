@@ -4,3 +4,4 @@ DEFESIO - Sistema de Gestão de Acessos
 
     :small_blue_diamond: feature: Implementar persistência de dados das Chaves de Segurança
     :small_blue_diamond: feature: Implementar comportamentos de tela da cadastro de Acessos
+    :small_blue_diamond: feature: Implementar persistência no Localstorage quando a API estiver inacessível

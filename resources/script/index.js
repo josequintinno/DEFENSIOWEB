@@ -5,6 +5,8 @@ const botaoCancelarCadastro = document.getElementById("botao-cancelar-cadastro")
 const categoriaChaveAcessoInput = document.getElementById("categoria-chave-acesso");
 const itemURL = document.getElementById("item-URL");
 const itemNome = document.getElementById("item-nome");
+const nomeAplicativoInput = document.getElementById("nome-aplicativo");
+const urlInput = document.getElementById("url");
 
 botaoCadastrarChaveSegurancaView.addEventListener("click", function() {
   modalFundoView.classList.add("apresentarModalFundo");
