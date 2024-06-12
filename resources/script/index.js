@@ -21,14 +21,14 @@ botaoCancelarCadastro.addEventListener("click", function(event) {
 
 categoriaChaveAcessoInput.addEventListener("change", function(event) {
   event.preventDefault();
-  if (categoriaChaveAcessoInput.value == 1 || categoriaChaveAcessoInput.value == 4) {
-    itemURL.classList.add("esconderItemFormulario");
-  } else {
-    itemURL.classList.remove("esconderItemFormulario");
-  }
-  if (categoriaChaveAcessoInput.value == 2 || categoriaChaveAcessoInput.value == 3) {
+  if (categoriaChaveAcessoInput.value == 1 || categoriaChaveAcessoInput.value == 3) {
     itemNome.classList.add("esconderItemFormulario");
   } else {
     itemNome.classList.remove("esconderItemFormulario");
+  }
+  if (categoriaChaveAcessoInput.value == 2 || categoriaChaveAcessoInput.value == 4) {
+    itemURL.classList.add("esconderItemFormulario");
+  } else {
+    itemURL.classList.remove("esconderItemFormulario");
   }
 });

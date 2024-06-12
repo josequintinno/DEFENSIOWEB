@@ -1,6 +1,6 @@
 const URL_API = "http://192.168.1.3:8080";
-const URL_CATEGORIA = "http://localhost:5500/resources/database/categoria.json";
-const URL_PESSOA_MONITORADA = "http://localhost:5500/resources/database/pessoa-monitorada.json";
+const URL_CATEGORIA_ACESSO = "http://192.168.1.3:8080/api/v1/categoria-acesso";
+const URL_PESSOA_MONITORADA = "http://192.168.1.3:8080/api/v1/pessoa";
 const URL_API_ACESSO = "http://192.168.1.3:8080/api/v1/acesso";
 
 const LOCAL_ACESSO = "TB_ACESSO";
@@ -8,42 +8,25 @@ const LOCAL_ACESSO = "TB_ACESSO";
 let categoriaList = [];
 let pessoaMonitoradaList = [];
 
-function recuperarCategoriaChaveSeguranca() {
-    fetch(URL_CATEGORIA)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro: API não está disponível");
-            }
-            return response.json();
-        }).then(data => {
-            categoriaList = data;
-            popularDadosCategoriaChaveSeguranca(categoriaList);
-        }).catch(error => {
-            throw new Error(`Erro: ${error}`);
-        });
-}
+async function recuperarCategoriaChaveSeguranca() {
 
-function popularDadosCategoriaChaveSeguranca(categoriaList) {
+    let response = await fetch(URL_CATEGORIA_ACESSO);
+
+    let categoriaAcessoList = await response.json();
 
     const categoriaChaveAcessoInput = document.getElementById("categoria-chave-acesso");
     const optionList = document.createElement("option");
+        categoriaChaveAcessoInput.innerHTML = "";
+        optionList.textContent = "Selecione";
+        optionList.value = "";
+        categoriaChaveAcessoInput.appendChild(optionList);
 
-    if (!categoriaChaveAcessoInput) {
-        throw new Error("Elemento não encontrado!");
-    }
-
-    categoriaChaveAcessoInput.innerHTML = "";
-    optionList.textContent = "Selecione";
-    optionList.value = "";
-    categoriaChaveAcessoInput.appendChild(optionList);
-
-    categoriaList.forEach(categoria => {
+    categoriaAcessoList.forEach(categoriaAcesso => {
         const option = document.createElement("option");
-            option.textContent = categoria.descricao;
-            option.value = categoria.codigo;
+            option.textContent = categoriaAcesso.descricao;
+            option.value = categoriaAcesso.codigo;
             categoriaChaveAcessoInput.appendChild(option);
     });
-
 }
 
 function recuperarPessoaMonitorada() {
@@ -77,9 +60,7 @@ function popularDadosPessoaMonitorada(pessoaMonitoradaList) {
 
 }
 
-function persistir() {
-
-    event.preventDefault();
+async function persistir() {
 
     const codigoCategoria = document.getElementById("categoria-chave-acesso");
     const codigoPessoaMonitorada = document.getElementById("pessoa-monitorada");
@@ -97,27 +78,32 @@ function persistir() {
         url: url != null ? url.value : null
     }
 
-    fetch(URL_API_ACESSO, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(chaveSegurancaObject)
-    }).then(response => {
-        return response.ok ? console.log('Dados enviados com sucesso!') : console.log('Falha ao enviar os dados!')
-    }).catch(error => console.error("Erro: ", error));
+    try {
+        let response = await fetch(URL_API_ACESSO, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(chaveSegurancaObject)
+        });
 
-    document.getElementById("categoria-chave-acesso").value = "";
-    document.getElementById("pessoa-monitorada").value = "";
-    document.getElementById("identificador").value = "";
-    document.getElementById("chave").value = "";
-    document.getElementById("nome-aplicativo").value = "";
-    document.getElementById("url").value = "";
+        if (!response.ok) {
+            throw "ERROR: Não foi possível cadastrar os dados!";
+        }
 
-    modalFundoView.classList.remove("apresentarModalFundo");
-    modalCadastrarChaveView.classList.remove("apresentarModalCadastrarChave");
+        document.getElementById("categoria-chave-acesso").value = "";
+        document.getElementById("pessoa-monitorada").value = "";
+        document.getElementById("identificador").value = "";
+        document.getElementById("chave").value = "";
+        document.getElementById("nome-aplicativo").value = "";
+        document.getElementById("url").value = "";
 
-    this.obterDadosTela();
+        modalFundoView.classList.remove("apresentarModalFundo");
+        modalCadastrarChaveView.classList.remove("apresentarModalCadastrarChave");
+
+    } catch (error) {
+        console.error(error);
+    }
 
 }
 
