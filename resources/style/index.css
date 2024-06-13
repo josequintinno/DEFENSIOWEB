@@ -346,6 +346,15 @@ main .dados .lista .caixa .item .cabecalho {
   width: 98% !important;
 }
 
+@media (max-width: 1500px) {
+  main .dados .lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 90%;
+    margin: auto;
+  }
+}
+
 @media (max-width: 1100px) {
   main .dados .lista {
     display: grid;
@@ -404,6 +413,15 @@ main .dados .lista .caixa .item .cabecalho {
 
   #modal-cadastrar-chave .conteudo .linha .item input {
     width: 86vw;
+  }
+}
+
+@media (max-width: 700px) {
+  main .dados .lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: auto;
   }
 }
 

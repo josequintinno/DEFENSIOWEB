@@ -1,7 +1,7 @@
-const URL_API = "http://192.168.1.3:8080";
-const URL_CATEGORIA_ACESSO = "http://192.168.1.3:8080/api/v1/categoria-acesso";
-const URL_PESSOA_MONITORADA = "http://192.168.1.3:8080/api/v1/pessoa";
-const URL_API_ACESSO = "http://192.168.1.3:8080/api/v1/acesso";
+const URL_API = "http://192.168.1.3:8081";
+const URL_CATEGORIA_ACESSO = URL_API.concat("/api/v1/categoria-acesso");
+const URL_PESSOA_MONITORADA = URL_API.concat("/api/v1/pessoa");
+const URL_API_ACESSO = URL_API.concat("/api/v1/acesso");
 
 const LOCAL_ACESSO = "TB_ACESSO";
 
