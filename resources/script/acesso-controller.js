@@ -1,4 +1,4 @@
-const URL_API = "http://192.168.1.3:8081";
+const URL_API = "http://192.168.1.5:8081";
 const URL_CATEGORIA_ACESSO = URL_API.concat("/api/v1/categoria-acesso");
 const URL_PESSOA_MONITORADA = URL_API.concat("/api/v1/pessoa");
 const URL_API_ACESSO = URL_API.concat("/api/v1/acesso");
@@ -73,7 +73,7 @@ async function persistir() {
         codigoCategoria: codigoCategoria.value,
         codigoPessoaMonitorada: codigoPessoaMonitorada.value,
         identificador: identificador.value,
-        chave: chave.value,
+        chave: criptografarSenha(chave.value),
         aplicativo: aplicativo != null ? aplicativo.value : null,
         url: url != null ? url.value : null
     }
@@ -210,6 +210,15 @@ function formatarData(dataParameter) {
     }
 
     return dia + "/" + mes + "/" + ano + " às " + hora + ":" + minuto + ":" + segundo;
+}
+
+async function criptografarSenha(senha) {
+    const buffer = new TextEncoder().encode(senha);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashedPassword = hashArray.map(byte => ('00' + byte.toString(16)).slice(-2)).join('');
+    debugger
+    return hashedPassword;
 }
 
 this.recuperarCategoriaChaveSeguranca();
