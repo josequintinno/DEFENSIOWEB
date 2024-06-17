@@ -8,3 +8,4 @@ DEFESIO - Sistema de Gestão de Acessos
     :small_blue_diamond: feature: Recuperar os dados cadastrados na tela
     :small_blue_diamond: feature: Recuperar dados básicos da API
     :small_blue_diamond: feature: Criptografar senha informada com 'SHA-256'
+    :small_blue_diamond: feature: Configuração do endereço da API

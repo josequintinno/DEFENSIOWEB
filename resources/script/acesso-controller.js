@@ -1,4 +1,8 @@
-const URL_API = "http://192.168.1.5:8081";
+const IP = "127.0.0.1";
+const SEPARADOR = ":";
+const PORT = "8081";
+const URL_API = "http://".concat(IP).concat(SEPARADOR).concat(PORT);
+
 const URL_CATEGORIA_ACESSO = URL_API.concat("/api/v1/categoria-acesso");
 const URL_PESSOA_MONITORADA = URL_API.concat("/api/v1/pessoa");
 const URL_API_ACESSO = URL_API.concat("/api/v1/acesso");
@@ -77,6 +81,8 @@ async function persistir() {
         aplicativo: aplicativo != null ? aplicativo.value : null,
         url: url != null ? url.value : null
     }
+
+    console.log(chaveSegurancaObject);
 
     try {
         let response = await fetch(URL_API_ACESSO, {
@@ -165,7 +171,7 @@ function configurarComponenteAcesso(acesso) {
                 <i class="ri-shield-keyhole-line"></i>
               </div>
               <div class="numero-contas">
-                <p>22 Contas</p>
+                <p>1 Conta Gerenciada</p>
               </div>
             </div>
             <div class="conteudo">
@@ -212,12 +218,11 @@ function formatarData(dataParameter) {
     return dia + "/" + mes + "/" + ano + " às " + hora + ":" + minuto + ":" + segundo;
 }
 
-async function criptografarSenha(senha) {
+function criptografarSenha(senha) {
     const buffer = new TextEncoder().encode(senha);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+    const hashBuffer = crypto.subtle.digest('SHA-256', buffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     const hashedPassword = hashArray.map(byte => ('00' + byte.toString(16)).slice(-2)).join('');
-    debugger
     return hashedPassword;
 }
 
