@@ -77,7 +77,7 @@ async function persistir() {
         codigoCategoria: codigoCategoria.value,
         codigoPessoaMonitorada: codigoPessoaMonitorada.value,
         identificador: identificador.value,
-        chave: criptografarSenha(chave.value),
+        chave: chave.value,
         aplicativo: aplicativo != null ? aplicativo.value : null,
         url: url != null ? url.value : null
     }
