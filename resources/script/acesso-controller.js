@@ -1,6 +1,6 @@
 const IP = "127.0.0.1";
 const SEPARADOR = ":";
-const PORT = "8081";
+const PORT = "8000";
 const URL_API = "http://".concat(IP).concat(SEPARADOR).concat(PORT);
 
 const URL_CATEGORIA_ACESSO = URL_API.concat("/api/v1/categoria-acesso");
@@ -110,6 +110,8 @@ async function persistir() {
     } catch (error) {
         console.error(error);
     }
+
+    obterDadosTela();
 
 }
 
